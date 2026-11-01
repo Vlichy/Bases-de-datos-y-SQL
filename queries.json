@@ -1,0 +1,62 @@
+[
+  [
+    "¿Cómo evoluciona el ingreso neto mensual?",
+    "CTE encadenadas, SUM, GROUP BY y LAG; se agregan movimientos por fecha real.",
+    "WITH mensual AS (\nSELECT strftime('%Y-%m',fecha_movimiento) AS mes,ROUND(SUM(importe),2) AS neto\nFROM vw_movimientos GROUP BY 1), comparacion AS (\nSELECT *,LAG(neto) OVER(ORDER BY mes) AS anterior FROM mensual)\nSELECT *,ROUND(100.0*(neto-anterior)/NULLIF(anterior,0),2) AS variacion_pct FROM comparacion ORDER BY mes",
+    "Comparar meses permite planificar actividad, pero ocho meses sintéticos no prueban estacionalidad."
+  ],
+  [
+    "¿Qué categorías generan mayor ingreso neto?",
+    "JOIN de movimientos, productos y categorías; los reembolsos se restan.",
+    "SELECT c.nombre_categoria, ROUND(SUM(m.importe),2) AS neto\nFROM vw_movimientos m INNER JOIN dim_productos p USING(producto_id)\nINNER JOIN dim_categorias c USING(categoria_id) GROUP BY c.categoria_id ORDER BY neto DESC",
+    "Priorizar la categoría líder, sujeto a validar demanda real y costes."
+  ],
+  [
+    "¿Qué productos acumulan más unidades brutas?",
+    "SUM y GROUP BY sobre líneas de venta, antes de devoluciones.",
+    "SELECT nombre_producto,SUM(cantidad) AS unidades_brutas,ROUND(SUM(importe_bruto),2) AS bruto\nFROM vw_ventas_detalle GROUP BY producto_id ORDER BY unidades_brutas DESC,nombre_producto",
+    "El volumen bruto no equivale a demanda retenida; contrastar con las devoluciones de Q7."
+  ],
+  [
+    "¿Qué canal concentra el ingreso neto?",
+    "JOIN, CTE y ventana OVER para calcular participación sobre el total.",
+    "WITH canal AS (SELECT t.nombre_tienda,ROUND(SUM(m.importe),2) AS neto\nFROM vw_movimientos m JOIN dim_tiendas t USING(tienda_id) GROUP BY t.tienda_id)\nSELECT *,ROUND(100.0*neto/SUM(neto) OVER(),2) AS cuota_pct FROM canal ORDER BY neto DESC",
+    "Concentrar recursos en el canal líder requiere antes corregir la discrepancia del README original."
+  ],
+  [
+    "¿Qué proporción de líneas termina devuelta?",
+    "COUNT, SUM y CASE WHEN; denominador explícito de líneas, no facturas.",
+    "SELECT COUNT(*) AS lineas,SUM(devuelto) AS devueltas,\nROUND(100.0*SUM(devuelto)/COUNT(*),2) AS pct_lineas,\nROUND(SUM(CASE WHEN devuelto=1 THEN importe_bruto ELSE 0 END),2) AS reembolso,\nROUND(100.0*SUM(CASE WHEN devuelto=1 THEN importe_bruto ELSE 0 END)/SUM(importe_bruto),2) AS pct_importe\nFROM vw_ventas_detalle",
+    "La tasa es de líneas devueltas; no hay identificador de factura ni devoluciones parciales."
+  ],
+  [
+    "¿Qué clientes registrados no tienen compras?",
+    "LEFT JOIN para conservar clientes sin hechos.",
+    "SELECT c.cliente_id,c.nombre,c.apellido FROM dim_clientes c\nLEFT JOIN fact_ventas v USING(cliente_id) WHERE v.venta_id IS NULL ORDER BY c.cliente_id",
+    "Son candidatos a revisar en una campaña, pero las fechas de alta originales presentan incoherencias."
+  ],
+  [
+    "¿Qué productos presentan mayores devoluciones?",
+    "HAVING filtra grupos; CASE y SUM distinguen ventas de devoluciones.",
+    "SELECT nombre_producto,SUM(cantidad) AS unidades_brutas,\nSUM(CASE WHEN devuelto=1 THEN cantidad ELSE 0 END) AS unidades_devueltas,\nROUND(SUM(CASE WHEN devuelto=1 THEN importe_bruto ELSE 0 END),2) AS reembolso\nFROM vw_ventas_detalle GROUP BY producto_id HAVING SUM(devuelto)>0 ORDER BY reembolso DESC",
+    "Investigar los motivos de devolución de los productos líderes; la muestra no permite inferir causalidad."
+  ],
+  [
+    "¿Qué clientes concentran más ingresos netos?",
+    "JOIN, agrupación y ventana acumulada para concentración.",
+    "WITH clientes AS (SELECT cliente_id,ROUND(SUM(importe),2) AS neto FROM vw_movimientos GROUP BY cliente_id)\nSELECT c.cliente_id,d.nombre,c.neto,ROUND(100.0*SUM(c.neto) OVER(ORDER BY c.neto DESC,c.cliente_id ROWS UNBOUNDED PRECEDING)/SUM(c.neto) OVER(),2) AS cuota_acumulada_pct\nFROM clientes c JOIN dim_clientes d USING(cliente_id) ORDER BY neto DESC,c.cliente_id",
+    "La concentración identifica dependencia comercial, sin confundir ingreso con beneficio."
+  ],
+  [
+    "¿Cómo se ordenan los productos dentro de su categoría?",
+    "CTE encadenadas, RANK con OVER y PARTITION BY; sin categorías inventadas.",
+    "WITH producto AS (SELECT p.producto_id,p.nombre_producto,c.nombre_categoria,ROUND(SUM(m.importe),2) AS neto\nFROM vw_movimientos m JOIN dim_productos p USING(producto_id) JOIN dim_categorias c USING(categoria_id)\nGROUP BY p.producto_id), ranking AS (SELECT *,RANK() OVER(PARTITION BY nombre_categoria ORDER BY neto DESC) AS posicion FROM producto)\nSELECT * FROM ranking ORDER BY nombre_categoria,posicion,producto_id",
+    "El ranking compara únicamente el catálogo sintético cargado, no todo un mercado."
+  ],
+  [
+    "¿Qué proporción de compradores repite líneas de compra?",
+    "Subconsulta, AVG, COUNT y CAST; recurrencia de líneas, no pedidos.",
+    "SELECT COUNT(*) AS compradores,SUM(CASE WHEN compras>1 THEN 1 ELSE 0 END) AS recurrentes,\nROUND(100.0*SUM(CASE WHEN compras>1 THEN 1 ELSE 0 END)/COUNT(*),2) AS pct_recurrentes,\nROUND(AVG(CAST(compras AS REAL)),2) AS lineas_por_comprador\nFROM (SELECT cliente_id,COUNT(*) AS compras FROM fact_ventas GROUP BY cliente_id)",
+    "Varias líneas no demuestran varias facturas. No se puede calcular ticket medio por factura con esta fuente."
+  ]
+]

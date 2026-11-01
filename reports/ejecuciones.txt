@@ -1,0 +1,40 @@
+[
+  {
+    "command": [
+      "python",
+      "run.py"
+    ],
+    "cwd": "C:\\Users\\panio\\Documents\\Curso\\DataScience\\Bbdd SQL",
+    "exit_code": 0,
+    "stdout": "{\"checks_pass\": 71, \"counts\": {\"dim_categorias\": 5, \"dim_productos\": 10, \"dim_clientes\": 12, \"dim_tiendas\": 3, \"dim_fecha\": 227, \"fact_ventas\": 35}, \"database\": \"C:\\\\Users\\\\panio\\\\Documents\\\\Curso\\\\DataScience\\\\Bbdd SQL\\\\tienda.sqlite\"}"
+  },
+  {
+    "command": [
+      "python",
+      "run.py"
+    ],
+    "cwd": "C:\\Users\\panio\\Documents\\Curso\\DataScience\\Bbdd SQL",
+    "exit_code": 0,
+    "stdout": "{\"checks_pass\": 71, \"counts\": {\"dim_categorias\": 5, \"dim_productos\": 10, \"dim_clientes\": 12, \"dim_tiendas\": 3, \"dim_fecha\": 227, \"fact_ventas\": 35}, \"database\": \"C:\\\\Users\\\\panio\\\\Documents\\\\Curso\\\\DataScience\\\\Bbdd SQL\\\\tienda.sqlite\"}"
+  },
+  {
+    "command": [
+      "python",
+      "run.py",
+      "--verify"
+    ],
+    "cwd": "C:\\Users\\panio\\Documents\\Curso\\DataScience\\Bbdd SQL",
+    "exit_code": 0,
+    "stdout": "{\"checks_pass\": 71, \"counts\": {\"dim_categorias\": 5, \"dim_productos\": 10, \"dim_clientes\": 12, \"dim_tiendas\": 3, \"dim_fecha\": 227, \"fact_ventas\": 35}, \"database\": \"base limpia en memoria\"}"
+  },
+  {
+    "command": [
+      "powershell",
+      "run.ps1",
+      "-Verify"
+    ],
+    "cwd": "C:\\Users\\panio\\Documents\\Curso\\DataScience\\Bbdd SQL",
+    "exit_code": 0,
+    "stdout": "{\"checks_pass\": 71, \"counts\": {\"dim_categorias\": 5, \"dim_productos\": 10, \"dim_clientes\": 12, \"dim_tiendas\": 3, \"dim_fecha\": 227, \"fact_ventas\": 35}, \"database\": \"base limpia en memoria\"}"
+  }
+]

@@ -1,0 +1,10 @@
+* text=auto
+*.sql text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.png binary
+# Los hashes de originales deben sobrevivir a clone/checkout sin conversión CRLF.
+originales/** -text
+
+*.sqlite binary

@@ -1,0 +1,8 @@
+{
+  "csv_python": "C:\\Users\\panio\\Documents\\Curso\\DataScience\\proyecto_python\\data\\processed\\onlineRetail_clean.csv",
+  "sha256": "73f642c217cb0c9c79ef6a432782565adbcca0868d3e325262bdd544d6304151",
+  "rows": 535186,
+  "missing_customer": 133581,
+  "used_in_sql": false,
+  "reason": "Se recupera el proyecto SQL existente, según fase 2."
+}

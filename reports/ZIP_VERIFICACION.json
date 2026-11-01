@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "files": 43,
+  "extracted_root": "C:\\Users\\panio\\Documents\\Curso\\DataScience\\proyecto_machineLearning\\tmp\\sql_zip_test_bf6bcb4f14684f8f91ff4ba7a5f6e29a\\Bbdd SQL",
+  "clean_disk_database_rebuilt": true,
+  "checks_per_run": 71,
+  "runs": [
+    {
+      "args": [],
+      "exit_code": 0,
+      "stdout": "{\"checks_pass\": 71, \"counts\": {\"dim_categorias\": 5, \"dim_productos\": 10, \"dim_clientes\": 12, \"dim_tiendas\": 3, \"dim_fecha\": 227, \"fact_ventas\": 35}, \"database\": \"C:\\\\Users\\\\panio\\\\Documents\\\\Curso\\\\DataScience\\\\proyecto_machineLearning\\\\tmp\\\\sql_zip_test_bf6bcb4f14684f8f91ff4ba7a5f6e29a\\\\Bbdd SQL\\\\tienda.sqlite\"}"
+    },
+    {
+      "args": [],
+      "exit_code": 0,
+      "stdout": "{\"checks_pass\": 71, \"counts\": {\"dim_categorias\": 5, \"dim_productos\": 10, \"dim_clientes\": 12, \"dim_tiendas\": 3, \"dim_fecha\": 227, \"fact_ventas\": 35}, \"database\": \"C:\\\\Users\\\\panio\\\\Documents\\\\Curso\\\\DataScience\\\\proyecto_machineLearning\\\\tmp\\\\sql_zip_test_bf6bcb4f14684f8f91ff4ba7a5f6e29a\\\\Bbdd SQL\\\\tienda.sqlite\"}"
+    },
+    {
+      "args": [
+        "--verify"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"checks_pass\": 71, \"counts\": {\"dim_categorias\": 5, \"dim_productos\": 10, \"dim_clientes\": 12, \"dim_tiendas\": 3, \"dim_fecha\": 227, \"fact_ventas\": 35}, \"database\": \"base limpia en memoria\"}"
+    },
+    {
+      "launcher": "run.ps1 -Verify",
+      "exit_code": 0,
+      "stdout": "{\"checks_pass\": 71, \"counts\": {\"dim_categorias\": 5, \"dim_productos\": 10, \"dim_clientes\": 12, \"dim_tiendas\": 3, \"dim_fecha\": 227, \"fact_ventas\": 35}, \"database\": \"base limpia en memoria\"}"
+    }
+  ],
+  "original_hashes": "PASS",
+  "delivered_database_integrity": "ok",
+  "temp_copy_removed_after_test": true
+}

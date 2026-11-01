@@ -1,0 +1,36 @@
+erDiagram
+    dim_categorias ||--o{ dim_productos : clasifica
+    dim_productos ||--o{ fact_ventas : producto
+    dim_clientes ||--o{ fact_ventas : cliente
+    dim_tiendas ||--o{ fact_ventas : canal
+    dim_fecha ||--o{ fact_ventas : fecha
+    raw_statements {
+        INTEGER raw_id PK
+        INTEGER source_line UK
+        TEXT original_sql
+        TEXT sha256
+    }
+    fact_ventas {
+        INTEGER venta_id PK
+        INTEGER fecha_id FK
+        INTEGER cliente_id FK
+        INTEGER producto_id FK
+        INTEGER tienda_id FK
+        INTEGER cantidad
+        REAL precio_unitario
+        REAL coste_unitario
+        REAL descuento
+        INTEGER devuelto
+        TEXT fecha_devolucion
+    }
+    dim_categorias { INTEGER categoria_id PK }
+    dim_productos {
+        INTEGER producto_id PK
+        INTEGER categoria_id FK
+    }
+    dim_clientes { INTEGER cliente_id PK }
+    dim_tiendas { INTEGER tienda_id PK }
+    dim_fecha {
+        INTEGER fecha_id PK
+        TEXT fecha UK
+    }

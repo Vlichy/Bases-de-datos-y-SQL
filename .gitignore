@@ -1,0 +1,27 @@
+__pycache__/
+.venv/
+*.sqlite
+*.sqlite-*
+reports/verify_*.sqlite
+
+*.zip
+*.zip.sha256
+
+# Publicación: conservar solo la base final, nunca archivos auxiliares.
+!/tienda.sqlite
+*.rar
+*.7z
+*.tmp
+*.temp
+*.bak
+*.log
+venv/
+tmp/
+.pytest_cache/
+.ipynb_checkpoints/
+.env
+.env.*
+*.pem
+*.key
+id_rsa
+id_ed25519

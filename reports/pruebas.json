@@ -1,0 +1,499 @@
+{
+  "project_root": "C:\\Users\\panio\\Documents\\Curso\\DataScience\\Bbdd SQL",
+  "executed_at_utc": "2026-11-01T16:45:05.492809+00:00",
+  "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite": "3.50.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "mode": "base temporal limpia",
+  "counts": {
+    "dim_categorias": 5,
+    "dim_productos": 10,
+    "dim_clientes": 12,
+    "dim_tiendas": 3,
+    "dim_fecha": 227,
+    "fact_ventas": 35
+  },
+  "checks": [
+    {
+      "prueba": "foreign_keys activado",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "foreign_key_check vacío",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "integrity_check ok",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Todas las tablas tienen PK",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "RAW/CORE dim_categorias",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "RAW/CORE dim_productos",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "RAW/CORE dim_clientes",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "RAW/CORE dim_tiendas",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "RAW/CORE dim_fecha",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "RAW/CORE fact_ventas",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Originales SHA256 intactos",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Trazabilidad valores completos dim_categorias",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Trazabilidad valores completos dim_productos",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Trazabilidad valores completos dim_clientes",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Trazabilidad valores completos dim_tiendas",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Trazabilidad valores completos dim_fecha",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Trazabilidad valores completos fact_ventas",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Índice ix_sales_date",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Índice ix_sales_product",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Índice ix_sales_customer",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Índice ix_sales_store",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Índice ix_product_category",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Cuatro FK de hechos y FK producto-categoría",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Trece advertencias de origen identificadas",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Rechazo PRIMARY KEY",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Rechazo UNIQUE",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Rechazo NOT NULL",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Rechazo CHECK rango",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Rechazo CHECK cantidad",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Rechazo STRICT conversión inválida",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Rechazo FOREIGN KEY",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Rechazo CHECK fecha imposible",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Rechazo trigger UPDATE",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Rechazo trigger INSERT",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "ROLLBACK cambia estado dentro de transacción",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "ROLLBACK restaura todo CORE y RAW",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "DEFAULT activo",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Función Python registrada",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Vista vw_ventas_detalle",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Vista vw_movimientos",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Exactamente diez consultas",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Consulta 01 ejecutada",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Consulta 02 ejecutada",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Consulta 03 ejecutada",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Consulta 04 ejecutada",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Consulta 05 ejecutada",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Consulta 06 ejecutada",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Consulta 07 ejecutada",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Consulta 08 ejecutada",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Consulta 09 ejecutada",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Consulta 10 ejecutada",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Control técnico Q2",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Control técnico Q3",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Control técnico Q4",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Control técnico Q5",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Control técnico Q8",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Detector de calendario detecta error inyectado",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Detector de duplicados detecta línea inyectada",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Pruebas de calidad no persisten",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "INSERT funcional",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "UPDATE funcional",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "DELETE funcional",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Bruto, descuento y ventas conciliados con Decimal",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Ventas, devoluciones y neto conciliados con Decimal",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Movimientos: 35 ventas positivas y 4 devoluciones negativas",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Regresión de redondeo: líneas 6 y 30",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Precios y descuentos de fuente admiten céntimos y puntos básicos",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Resultados de 03_eda coinciden con informe",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "03_eda completo ejecutado sin cambios persistentes",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Segunda ejecución sin duplicados ni cambios",
+      "resultado": "PASS"
+    },
+    {
+      "prueba": "Venta bruta menos devolución igual a ingreso neto",
+      "resultado": "PASS"
+    }
+  ],
+  "quality": [
+    {
+      "sql": "-- Q01: nulos legítimos, perfil descriptivo.\nSELECT COUNT(*) AS clientes, SUM(email IS NULL) AS sin_email,SUM(ciudad IS NULL) AS sin_ciudad FROM dim_clientes;\n",
+      "columns": [
+        "clientes",
+        "sin_email",
+        "sin_ciudad"
+      ],
+      "rows": [
+        [
+          12,
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "sql": "-- Q02: duplicados potenciales de líneas (no se borran automáticamente).\nSELECT fecha_id,cliente_id,producto_id,tienda_id,cantidad,precio_unitario,COUNT(*) AS n FROM fact_ventas GROUP BY fecha_id,cliente_id,producto_id,tienda_id,cantidad,precio_unitario HAVING COUNT(*)>1;\n",
+      "columns": [
+        "fecha_id",
+        "cliente_id",
+        "producto_id",
+        "tienda_id",
+        "cantidad",
+        "precio_unitario",
+        "n"
+      ],
+      "rows": []
+    },
+    {
+      "sql": "-- Q03: fechas y conversiones; STRICT rechaza tipos incompatibles en CORE.\nSELECT fecha_id FROM dim_fecha WHERE date(fecha,'+0 days') IS NULL OR date(fecha,'+0 days')<>fecha OR CAST(strftime('%Y',fecha) AS INTEGER)<>anio OR CAST(strftime('%m',fecha) AS INTEGER)<>mes OR CAST(strftime('%d',fecha) AS INTEGER)<>dia OR (mes+2)/3<>trimestre;\n",
+      "columns": [
+        "fecha_id"
+      ],
+      "rows": []
+    },
+    {
+      "sql": "-- Q04: rangos y coherencia de devoluciones.\nSELECT venta_id FROM fact_ventas v JOIN dim_fecha f USING(fecha_id) WHERE cantidad<=0 OR precio_unitario<0 OR coste_unitario<0 OR descuento NOT BETWEEN 0 AND 100 OR (devuelto=1 AND (fecha_devolucion<f.fecha OR date(fecha_devolucion,'+0 days') IS NULL));\n",
+      "columns": [
+        "venta_id"
+      ],
+      "rows": []
+    },
+    {
+      "sql": "-- Q05: integridad referencial.\nPRAGMA foreign_key_check;\n",
+      "columns": [
+        "table",
+        "rowid",
+        "parent",
+        "fkid"
+      ],
+      "rows": []
+    },
+    {
+      "sql": "-- Q06: coherencia RAW/CORE por entidad.\nSELECT target_table,COUNT(*) AS raw_filas FROM raw_statements GROUP BY target_table ORDER BY target_table;\n",
+      "columns": [
+        "target_table",
+        "raw_filas"
+      ],
+      "rows": [
+        [
+          "dim_categorias",
+          5
+        ],
+        [
+          "dim_clientes",
+          12
+        ],
+        [
+          "dim_fecha",
+          227
+        ],
+        [
+          "dim_productos",
+          10
+        ],
+        [
+          "dim_tiendas",
+          3
+        ],
+        [
+          "fact_ventas",
+          35
+        ]
+      ]
+    },
+    {
+      "sql": "-- Q07: advertencia semántica de origen: venta previa al alta; no es una restricción universal.\nSELECT v.venta_id,c.cliente_id,f.fecha,c.fecha_alta,CAST(julianday(c.fecha_alta)-julianday(f.fecha) AS INTEGER) AS dias_antes_alta FROM fact_ventas v JOIN dim_clientes c USING(cliente_id) JOIN dim_fecha f USING(fecha_id) WHERE f.fecha<c.fecha_alta;\n",
+      "columns": [
+        "venta_id",
+        "cliente_id",
+        "fecha",
+        "fecha_alta",
+        "dias_antes_alta"
+      ],
+      "rows": [
+        [
+          1,
+          2,
+          "2026-01-18",
+          "2026-02-02",
+          15
+        ],
+        [
+          2,
+          4,
+          "2026-02-09",
+          "2026-03-03",
+          22
+        ],
+        [
+          4,
+          5,
+          "2026-03-02",
+          "2026-03-15",
+          13
+        ],
+        [
+          5,
+          6,
+          "2026-03-08",
+          "2026-04-12",
+          35
+        ],
+        [
+          7,
+          7,
+          "2026-04-05",
+          "2026-05-05",
+          30
+        ],
+        [
+          8,
+          8,
+          "2026-04-11",
+          "2026-06-01",
+          51
+        ],
+        [
+          10,
+          9,
+          "2026-05-03",
+          "2026-06-15",
+          43
+        ],
+        [
+          11,
+          10,
+          "2026-05-09",
+          "2026-05-18",
+          9
+        ],
+        [
+          12,
+          9,
+          "2026-05-21",
+          "2026-06-15",
+          25
+        ],
+        [
+          25,
+          2,
+          "2026-01-12",
+          "2026-02-02",
+          21
+        ],
+        [
+          30,
+          5,
+          "2026-01-25",
+          "2026-03-15",
+          49
+        ],
+        [
+          31,
+          5,
+          "2026-02-04",
+          "2026-03-15",
+          39
+        ],
+        [
+          32,
+          8,
+          "2026-02-22",
+          "2026-06-01",
+          99
+        ]
+      ]
+    },
+    {
+      "sql": "-- Q08: campos de devolución incoherentes y rangos extremos para revisión.\nSELECT venta_id FROM fact_ventas WHERE (devuelto=0 AND (fecha_devolucion IS NOT NULL OR motivo_devolucion IS NOT NULL)) OR cantidad>1000000 OR precio_unitario>1000000 OR coste_unitario>1000000;\n",
+      "columns": [
+        "venta_id"
+      ],
+      "rows": []
+    }
+  ]
+}
